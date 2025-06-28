@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+
+    <style>
+    /* Basic Reset and Layout */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      font-family: 'Courier New', Courier, monospace;
+    }
+
+    #container {
+      background-color: #111;
+      padding: 30px 50px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    #container span {
+      font-size: 60px;
+      color: #00ffe1;
+      text-shadow: 0 0 10px #00ffe1, 0 0 20px #00ffe1;
+      transition: all 0.3s ease-in-out;
+    }
+
+    #ampm {
+      font-size: 30px;
+      color: #f0f0f0;
+      margin-left: 10px;
+      text-shadow: 0 0 5px #fff;
+    }
+
+    @media (max-width: 500px) {
+    #container span {
+    font-size: 40px;
+  }
+}
+  </style>
+</head>
+<body>
+    <div id="container">
+        <span id="hour">00</span>
+        <span>:</span>
+        <span id="minutes">00</span>
+        <span>:</span>
+        <span id="seconds">00</span>
+        <span id="ampm"></span>
+
+    </div>
+    <script>
+        setInterval(() => {
+        hour=document.getElementById("hour")
+        minutes=document.getElementById("minutes")
+        seconds=document.getElementById("seconds")
+        amPm=document.getElementById("ampm")
+
+        let currentDay=new Date()
+       // console.log(currentDay);
+        let currentHr=currentDay.getHours()
+        let currentMinutes=currentDay.getMinutes()
+        let currentSeconds=currentDay.getSeconds()
+
+        hour.textContent=currentHr<10 ?'0'+ currentHr:currentHr
+        minutes.textContent=currentMinutes
+        seconds.textContent=currentSeconds
+
+        amPm.textContent=currentHr>12?'Pm':"Am";
+        }, 1000);
+
+
+
+        
+        
+
+        
+    </script>
+</body>
+</html>
